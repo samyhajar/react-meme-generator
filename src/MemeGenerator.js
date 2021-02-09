@@ -37,7 +37,7 @@ export function MemeGenerator() {
       <img src={memeImg} alt={memeImg.name} />
       <select
         id="selectImg"
-        onChange={(e) => {
+        onChange={() => {
           const imgSelect = document.getElementById('selectImg');
           const selectedValue = imgSelect.value;
           setImg(selectedValue);
@@ -59,13 +59,9 @@ export function MemeGenerator() {
             className="top"
             value={topText}
             onChange={onChangeTopText}
-          ></input>
+          />
           <label htmlFor="bottom"> Bottom Text : </label>
-          <input
-            type="text"
-            value={bottomText}
-            onChange={onChangeBottomText}
-          ></input>
+          <input type="text" value={bottomText} onChange={onChangeBottomText} />
           <br />
           <br />
           <br />
