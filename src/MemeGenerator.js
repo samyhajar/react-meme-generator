@@ -45,7 +45,7 @@ export function MemeGenerator() {
         }}
       >
         {memes.map((meme) => (
-          <option key={meme.key} value={meme.key}>
+          <option key={meme.id} value={meme.id}>
             {meme.name}
           </option>
         ))}
