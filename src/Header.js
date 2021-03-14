@@ -3,9 +3,7 @@ import React from 'react';
 function Header() {
   return (
     <div className="App-header">
-      <header>
-        <p> Meme Generator</p>
-      </header>
+      <h1> Meme Generator</h1>
     </div>
   );
 }

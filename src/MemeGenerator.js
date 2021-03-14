@@ -6,25 +6,22 @@ export function MemeGenerator() {
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
   const [memes, setMemes] = useState([]);
-  const [img, setImg] = useState('aag');
+  const [value, setValue] = useState('aag');
 
   const onChangeTopText = (e) => {
-    console.log(e);
     setTopText(e.target.value);
   };
 
   const onChangeBottomText = (e) => {
-    console.log(e);
     setBottomText(e.target.value);
   };
 
-  const memeImg = `https://api.memegen.link/images/${img}/${topText}/${bottomText}`;
+  const memeMaker = `https://api.memegen.link/images/${value}/${topText}/${bottomText}`;
 
   useEffect(() => {
     axios
       .get('https://api.memegen.link/templates/')
       .then((res) => {
-        console.log(res);
         setMemes(res.data);
       })
       .catch((err) => {
@@ -34,14 +31,13 @@ export function MemeGenerator() {
 
   return (
     <div className="Images-font">
-      <img src={memeImg} alt={memeImg.name} />
+      <img src={memeMaker} alt={memeMaker.name} />
       <select
         id="selectImg"
         onChange={() => {
           const imgSelect = document.getElementById('selectImg');
           const selectedValue = imgSelect.value;
-          setImg(selectedValue);
-          // console.log(memeImg);
+          setValue(selectedValue);
         }}
       >
         {memes.map((meme) => (
@@ -67,7 +63,7 @@ export function MemeGenerator() {
           <br />
         </div>
         <div>
-          <Button memeImg={memeImg} />
+          <Button memeImg={memeMaker} />
         </div>
       </div>
     </div>
